@@ -15,7 +15,7 @@ The violations are logged as a Error and also the build is aborted.
 
 ## Steps to run the plug-in
 
-- Clone and Install the plug-in
+Clone and Install the plug-in
 - git clone https://github.com/albinissac/contentvalidatormavenplugin.git
 - mvn clean install
 

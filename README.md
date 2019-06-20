@@ -19,8 +19,8 @@ Clone and Install the plug-in
 
 ```
 
-* git clone https://github.com/albinissac/contentvalidatormavenplugin.git
-* mvn clean install
+git clone https://github.com/albinissac/contentvalidatormavenplugin.git
+mvn clean install
 
 ```
 

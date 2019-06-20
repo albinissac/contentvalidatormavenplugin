@@ -31,26 +31,26 @@ import org.apache.jackrabbit.vault.fs.api.PathFilterSet;
 @Mojo (name="validate", defaultPhase=LifecyclePhase.VERIFY, requiresProject=false )
 public class ContentValidationMojo extends AbstractValidationMojo
 {
-    static ArrayList<String> platformConfigurationPaths;
+    static ArrayList<String> platformFilterRestrictionPaths;
     @Parameter (property="validation.filename", defaultValue="${project.build.directory}/${project.build.finalName}")
     private File target;
     static
     {
-        platformConfigurationPaths=new ArrayList<String>();
-        platformConfigurationPaths.add("/etc/cloudservices[/]?(dynamictagmanagement|search-promote|gtm)[/]?");
-        platformConfigurationPaths.add("/apps/sling.*");
-        platformConfigurationPaths.add("/etc[/]?(rep:policy)?");
-        platformConfigurationPaths.add("/etc/key.*");
-        platformConfigurationPaths.add("/apps/system/config.*");
-        platformConfigurationPaths.add("/apps/cq.*");
-        platformConfigurationPaths.add("/libs.*");
-        platformConfigurationPaths.add("/etc/tags[/]?");
-        platformConfigurationPaths.add("/content[/]?(rep:policy)?");
-        platformConfigurationPaths.add("/content/dam[/]?(rep:policy)?");
-        platformConfigurationPaths.add("/etc/designs[/]?");
-        platformConfigurationPaths.add("/etc/clientlibs[/]?");
-        platformConfigurationPaths.add("/apps/granite.*");
-        platformConfigurationPaths.add("/rep:policy");
+        platformFilterRestrictionPaths=new ArrayList<String>();
+        platformFilterRestrictionPaths.add("/etc/cloudservices[/]?(dynamictagmanagement|search-promote|gtm)[/]?");
+        platformFilterRestrictionPaths.add("/apps/sling.*");
+        platformFilterRestrictionPaths.add("/etc[/]?(rep:policy)?");
+        platformFilterRestrictionPaths.add("/etc/key.*");
+        platformFilterRestrictionPaths.add("/apps/system/config.*");
+        platformFilterRestrictionPaths.add("/apps/cq.*");
+        platformFilterRestrictionPaths.add("/libs.*");
+        platformFilterRestrictionPaths.add("/etc/tags[/]?");
+        platformFilterRestrictionPaths.add("/content[/]?(rep:policy)?");
+        platformFilterRestrictionPaths.add("/content/dam[/]?(rep:policy)?");
+        platformFilterRestrictionPaths.add("/etc/designs[/]?");
+        platformFilterRestrictionPaths.add("/etc/clientlibs[/]?");
+        platformFilterRestrictionPaths.add("/apps/granite.*");
+        platformFilterRestrictionPaths.add("/rep:policy");
     }
 
     @Override
@@ -100,7 +100,7 @@ public class ContentValidationMojo extends AbstractValidationMojo
         List<PathFilterSet> filters=cpe.getFilterSets();
         for(PathFilterSet filter: filters)
         {
-            boolean positiveMatch = platformConfigurationPaths.stream()
+            boolean positiveMatch = platformFilterRestrictionPaths.stream()
                     .filter((String regex) -> filter.getRoot().matches(regex))
                     .findFirst().isPresent();
             if (positiveMatch) {

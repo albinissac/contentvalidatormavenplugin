@@ -43,7 +43,6 @@ import org.apache.jackrabbit.vault.fs.api.PathFilterSet;
 public abstract class AbstractValidationMojo extends AbstractMojo {
 
     protected static final String TARGET_EXTENSION = ".zip";
-    private static final String FILTER_XML_EXPRESSION = "/META-INF/vault/filter.xml";
     static ArrayList<String> blacklistedSubPackagesAndBundles;
     private static final String SUBPACKAGE_EXPRESSION = "/jcr_root/etc/packages/.*.zip";
 

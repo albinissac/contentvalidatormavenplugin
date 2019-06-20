@@ -16,12 +16,21 @@ The violations are logged as a Error and also the build is aborted.
 ## Steps to run the plug-in
 
 Clone and Install the plug-in
+
+```
+
 - git clone https://github.com/albinissac/contentvalidatormavenplugin.git
 - mvn clean install
 
+```
+
 ## Run in standalone mode 
 
+```
+
 mvn com.contentpackage.validator:contentpackagevalidator-maven-plugin:validate -Dvalidation.filename=<Content Package path>
+
+```
 
 This mode can be used for any content packages - packages build through Maven build or packages created through package manager.
 
@@ -29,6 +38,8 @@ This mode can be used for any content packages - packages build through Maven bu
 ## Run as part of Maven build
  Add the below plug-in configurations to the pom.xml of the package
 
+ ```
+ 
 <plugin>
 <groupId>com.contentpackage.validator</groupId>
 <artifactId>contentpackagevalidator-maven-plugin</artifactId>
@@ -42,3 +53,4 @@ This mode can be used for any content packages - packages build through Maven bu
 </executions>
 </plugin>
 
+```

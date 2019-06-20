@@ -28,11 +28,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.jackrabbit.vault.fs.api.PathFilterSet;
 
-/**
- * Goal which validate the AEM content package.
- * @goal validate1
- * @phase VERIFY
- */
 @Mojo (name="validate", defaultPhase=LifecyclePhase.VERIFY, requiresProject=false )
 public class ContentValidationMojo extends AbstractValidationMojo
 {
